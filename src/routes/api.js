@@ -7,6 +7,8 @@ import {
   toggleFavorite,
 } from "../controllers/ContactFavoriteController.js";
 import { updateNote } from "../controllers/ContactNoteController.js";
+import { authenticate } from "../middleware/authMiddleware.js";
+import { getContactStats } from "../controllers/StatisticsController.js";
 
 
 const router = express.Router();
@@ -21,6 +23,9 @@ router.get("/contacts", getContacts);
 
 // Specific routes
 router.get("/contacts/favorites", getFavorites);
+
+// Statistics Endpoint (Protected by Authentication Middleware)
+router.get("/contacts/stats", authenticate, getContactStats);
 
 // ID based routes
 router.post("/contacts/:id/favorite", markFavorite);
