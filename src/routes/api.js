@@ -1,5 +1,5 @@
 import express from "express";
-import { getContact } from "../controllers/ContactController.js";
+import { getContact, getContacts } from "../controllers/ContactController.js";
 import {
   getFavorites,
   markFavorite,
@@ -11,16 +11,13 @@ import { updateNote } from "../controllers/ContactNoteController.js";
 
 const router = express.Router();
 
-// health check endpoint
+// Health check endpoint
 router.get("/health", (req, res) => {
   res.json({ status: "ok", message: "API is up and running" });
 });
 
-// Created for testing purposes to quickly fetch contact IDs
-router.get("/all-contacts", async (req, res) => {
-  const contacts = await db("contacts").select("id", "first_name");
-  res.json(contacts);
-});
+// List all contacts with pagination, search, and filtering
+router.get("/contacts", getContacts);
 
 // Specific routes
 router.get("/contacts/favorites", getFavorites);
