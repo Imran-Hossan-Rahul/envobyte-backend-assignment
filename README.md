@@ -10,9 +10,10 @@ If you want to run this project on your computer, please follow these steps sequ
 ### 1. Clone this project
 ```bash
 git clone https://github.com/Imran-Hossan-Rahul/envobyte-backend-assignment
+```
+> **Note:** As per the assignment requirements, this repository defaults to the `envobyte-intern-assignment` branch.
 
-*(Note: As per the assignment requirements, this repository defaults to the 'envobyte-intern-assignment' branch).*
-
+```bash
 cd envobyte-backend-assignment
 ```
 ### 2. Install Packages
@@ -55,7 +56,8 @@ docker compose exec laravel.test php artisan monica:dummy --force -vvv
 ### 4. Database Settings (Node.js App)
 Since this is a fresh clone, you need to set up your environment file. 
 Simply copy (or rename) the `.env.example` file to `.env`. 
-**⚠️ CRITICAL:** Open the `.env` file and ensure **all** database credentials exactly match what you configured in Step 3. If you changed the Port (`FORWARD_DB_PORT`), Username, Password, or Database Name in Monica's `.env`, you **must** update them here to match!
+> [!IMPORTANT]
+> Open the `.env` file and ensure **all** database credentials exactly match what you configured in Step 3. If you changed the Port (`FORWARD_DB_PORT`), Username, Password, or Database Name in Monica's `.env`, you **must** update them here to match!
 ```env
 # Express Server Configuration
 PORT=5000
@@ -66,9 +68,10 @@ DB_USER=monica
 DB_PASSWORD=secret
 DB_NAME=monica
 
-*(💡 Troubleshooting Note: If your Windows machine, Docker, or Hyper-V blocks port 5000 and you get an `EACCES` or `Connection Refused` error, simply change the `PORT` variable in your `.env` file to any other available/free port (e.g., 8000 or 4000) and restart the server).*
-
 ```
+
+> [!TIP]
+> **Troubleshooting Note:** If your Windows machine, Docker, or Hyper-V blocks port 5000 and you get an `EACCES` or `Connection Refused` error, simply change the `PORT` variable in your `.env` file to any other available/free port (e.g., 8000 or 4000) and restart the server.
 
 ### 5. Database Migration
 Make sure your terminal is inside the **`envobyte-backend-assignment`** folder (Node.js project), then run this command to add the `is_favorite` and `personal_note` columns to the Monica contacts table:
