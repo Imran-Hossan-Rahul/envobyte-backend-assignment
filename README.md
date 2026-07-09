@@ -6,28 +6,23 @@ Based on the email update from the HR team on July 6, we were allowed to use a d
 
 
 ## Setup Instructions
-If you want to run this project on your computer, please follow these steps sequentially:
-### 1. Clone this project
-```bash
-git clone https://github.com/Imran-Hossan-Rahul/envobyte-backend-assignment
-```
-> **Note:** As per the assignment requirements, this repository defaults to the `envobyte-intern-assignment` branch.
+To run this project successfully, you will need two separate repositories running side-by-side: this Node.js API project, and the original Monica CRM (for the database). 
+Please follow these steps sequentially:
 
-```bash
-cd envobyte-backend-assignment
-```
-### 2. Install Packages
-```bash
-npm install
-```
-### 3. Setup Original Monica Database
-This Node.js API requires the original Monica CRM database to be running and seeded. 
-*(If you don't have the original Monica project downloaded yet, clone it first:)*
+### 1. Setup the Original Monica Database
+This Node.js API requires the original Monica CRM database to be running and seeded. Open a terminal in your preferred workspace folder (e.g., your Desktop or Projects folder).
+
+**If you don't have the original Monica project downloaded yet, clone it now:**
 ```bash
 git clone https://github.com/monicahq/monica.git
+```
+
+**Go into the monica folder:**
+```bash
 cd monica
 ```
-If you already have it downloaded, simply open a new terminal and go into your **`monica`** folder. Then follow these Docker (Laravel Sail) instructions to set up the database:
+
+Then follow these Docker (Laravel Sail) instructions to set up the database:
 - Make sure you have created a `.env` file in the Monica folder (by copying from `.env.example`).
 - **Important `.env` Settings:** Open your Monica `.env` file and ensure you have these exact values set (to connect properly inside Docker and avoid port conflicts on your PC):
   - `DB_CONNECTION=mysql`
@@ -48,9 +43,25 @@ docker compose exec laravel.test composer install
 docker compose exec laravel.test php artisan key:generate
 docker compose exec laravel.test php artisan migrate
 ```
-- **If you already have a running project (or after doing the above)**, just seed the dummy data into the database:
+- **Seed the dummy data into the database:**
 ```bash
 docker compose exec laravel.test php artisan monica:dummy --force -vvv
+```
+
+### 2. Clone this Node.js Project
+Now, open a **NEW** terminal tab in your main workspace folder (OUTSIDE the monica folder) and clone this Node.js assignment:
+```bash
+git clone https://github.com/Imran-Hossan-Rahul/envobyte-backend-assignment
+```
+> **Note:** As per the assignment requirements, this repository defaults to the `envobyte-intern-assignment` branch.
+
+```bash
+cd envobyte-backend-assignment
+```
+
+### 3. Install Node Packages
+```bash
+npm install
 ```
 
 ### 4. Database Settings (Node.js App)
