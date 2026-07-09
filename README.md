@@ -118,7 +118,7 @@ After setting up the project locally, I carefully reviewed the assignment requir
 - **Part 6 (Tests):** I wrote a comprehensive Jest and Supertest suite (`contacts.test.js`). I covered the three required feature tests (marking a contact as favorite, updating a personal note, and filtering contacts using `favorite=1`), and also added extra tests to verify the search functionality and the statistics endpoint fields.
 
 ## Assumptions Made
-- **Authentication & Multi-tenancy:** I built this Node.js app from scratch, so I did not build a full JWT login system. To fulfill the "authenticated user" requirement in Part 5, I assumed the existence of an Auth Middleware. I created `authMiddleware.js` which manually sets `req.user.account_id = 1` to demonstrate how I would handle multi-tenant user data in a real project.
+- **Authentication & Multi-tenancy:** I built this Node.js app from scratch, so I did not build a full JWT login system. To fulfill the "authenticated user" requirement in Part 5, I assumed the existence of an Auth Middleware. I created `authMiddleware.js` which dynamically fetches a valid `account_id` from the seeded database to demonstrate how I would handle multi-tenant user data in a real project.
 - **Pagination Defaults:** For the listing endpoint, I assumed a default pagination limit of 15 items per page and a default sorting column of `first_name` if no query parameters are provided.
 ---
 
