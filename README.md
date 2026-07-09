@@ -51,12 +51,12 @@ docker compose exec laravel.test php artisan monica:dummy --force -vvv
 ### 2. Clone this Node.js Project
 Now, open a **NEW** terminal tab in your main workspace folder (OUTSIDE the monica folder) and clone this Node.js assignment:
 ```bash
-git clone https://github.com/Imran-Hossan-Rahul/envobyte-backend-assignment
+git clone https://github.com/Imran-Hossan-Rahul/monica-crm
 ```
 > **Note:** As per the assignment requirements, this repository defaults to the `envobyte-intern-assignment` branch.
 
 ```bash
-cd envobyte-backend-assignment
+cd monica-crm
 ```
 
 ### 3. Install Node Packages
@@ -85,7 +85,7 @@ DB_NAME=monica
 > **Troubleshooting Note:** If your Windows machine, Docker, or Hyper-V blocks port 5000 and you get an `EACCES` or `Connection Refused` error, simply change the `PORT` variable in your `.env` file to any other available/free port (e.g., 8000 or 4000) and restart the server.
 
 ### 5. Database Migration
-Make sure your terminal is inside the **`envobyte-backend-assignment`** folder (Node.js project), then run this command to add the `is_favorite` and `personal_note` columns to the Monica contacts table:
+Make sure your terminal is inside the **`monica-crm`** folder (Node.js project), then run this command to add the `is_favorite` and `personal_note` columns to the Monica contacts table:
 ```bash
 npx knex migrate:latest
 ```
