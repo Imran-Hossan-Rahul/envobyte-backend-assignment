@@ -25,7 +25,7 @@ cd monica
 Then follow these Docker (Laravel Sail) instructions to set up the database:
 - Make sure you have created a `.env` file in the Monica folder (by copying from `.env.example`).
 - **Important `.env` Settings:** Open your Monica `.env` file and ensure you have these exact values set (to connect properly inside Docker and avoid port conflicts on your PC):
-  - `DB_CONNECTION=mysql`
+  - `DB_CONNECTION=mysql` *(Crucial: Monica defaults this to sqlite, you must change it to mysql)*
   - `DB_HOST=mariadb` *(Crucial: must be mariadb, not 127.0.0.1)*
   - `DB_PORT=3306`
   - `DB_DATABASE=monica`
