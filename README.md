@@ -24,7 +24,7 @@ cd monica
 
 Then follow these Docker (Laravel Sail) instructions to set up the database:
 - Make sure you have created a `.env` file in the Monica folder (by copying from `.env.example`).
-- **Important `.env` Settings:** Open your Monica `.env` file and ensure you have these exact values set (to connect properly inside Docker and avoid port conflicts on your PC):
+- **Important `.env` Settings:** Open your Monica `.env` file and ensure you have these exact values set (to connect properly inside Docker and avoid port conflicts on your PC). **Make sure to uncomment them (remove the `#` at the beginning of the line) if they are commented out!**
   - `DB_CONNECTION=mysql` *(Crucial: Monica defaults this to sqlite, you must change it to mysql)*
   - `DB_HOST=mariadb` *(Crucial: must be mariadb, not 127.0.0.1)*
   - `DB_PORT=3306`
@@ -137,3 +137,16 @@ Total Time: About 16 Hours
 - **5 Hours**: Implementing the features part-by-part (took about 1 hour for each part).
 - **1 Hour**: Figuring out and fixing the "Only include contacts belonging to the authenticated user/account" requirement for the stats API.
 - **5 Hours**: Reviewing the code, testing, fixing bugs, and writing this README file.
+
+---
+
+## A Note of Thanks
+
+I am incredibly happy and deeply grateful to have been shortlisted for this internship. I still remember the immense joy I felt the day I saw the email! 
+
+Working on this assignment has been an amazing journey. Analyzing a robust PHP/Laravel architecture and extending its Contact module using a custom Node.js backend was a completely new, thrilling, and invaluable learning experience. I have learned so much throughout this process, and I am confident that this experience will greatly benefit my career in the future, Insha'Allah.
+
+I have poured my heart and utmost effort into completing this project to the highest standard possible. I genuinely hope to get the opportunity to work on more exciting projects with the amazing team at Envobyte and continue learning and growing with you!
+
+*Best Regards,*  
+**Imran Hossan**
