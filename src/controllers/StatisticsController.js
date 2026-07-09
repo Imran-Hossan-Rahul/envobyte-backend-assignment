@@ -8,11 +8,14 @@ import db from "../config/database.js";
  */
 export const getContactStats = async (req, res) => {
   try {
+    const accountId = req.user.account_id;
+
     // Running a single efficient query to get all 3 statistics at once
     const [stats] = await db("contacts")
-      // .where("account_id", accountId)
+      .join("vaults", "contacts.vault_id", "vaults.id")
+      .where("vaults.account_id", accountId)
       .select(
-        db.raw("COUNT(id) as total_contacts"),
+        db.raw("COUNT(contacts.id) as total_contacts"),
         db.raw(
           "SUM(CASE WHEN is_favorite = 1 THEN 1 ELSE 0 END) as favorite_contacts",
         ),

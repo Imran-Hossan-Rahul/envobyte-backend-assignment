@@ -19,19 +19,19 @@ router.get("/health", (req, res) => {
 });
 
 // List all contacts with pagination, search, and filtering
-router.get("/contacts", getContacts);
+router.get("/contacts", authenticate, getContacts);
 
 // Specific routes
-router.get("/contacts/favorites", getFavorites);
+router.get("/contacts/favorites", authenticate, getFavorites);
 
-// Statistics Endpoint (Protected by Authentication Middleware)
+// Statistics Endpoint
 router.get("/contacts/stats", authenticate, getContactStats);
 
 // ID based routes
-router.post("/contacts/:id/favorite", markFavorite);
-router.delete("/contacts/:id/favorite", removeFavorite);
-router.put("/contacts/:id/note", updateNote);
-router.get("/contacts/:id", getContact);
-router.patch("/contacts/:id/favorite", toggleFavorite);
+router.post("/contacts/:id/favorite", authenticate, markFavorite);
+router.delete("/contacts/:id/favorite", authenticate, removeFavorite);
+router.put("/contacts/:id/note", authenticate, updateNote);
+router.get("/contacts/:id", authenticate, getContact);
+router.patch("/contacts/:id/favorite", authenticate, toggleFavorite);
 
 export default router;

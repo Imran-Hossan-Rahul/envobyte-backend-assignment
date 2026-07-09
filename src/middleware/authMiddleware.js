@@ -8,7 +8,7 @@ export const authenticate = (req, res, next) => {
   // Simulating a successfully logged-in user
   req.user = {
     id: 1,
-    account_id: 1, // This is the crucial field Monica uses to group contacts
+    account_id: 1, 
     name: "Admin User",
   };
 

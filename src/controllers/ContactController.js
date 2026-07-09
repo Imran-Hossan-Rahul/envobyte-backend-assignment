@@ -27,7 +27,7 @@ export const getContacts = async (req, res) => {
     const { page = 1, limit = 15, sort = "first_name", favorite, search } = req.query;
 
     // 2. Initialize the base database query
-    const query = db("contacts");
+    const query = db("contacts").select("*");
 
     // 3. Apply the Favorite filter if explicitly requested (?favorite=1)
     if (favorite === "1") {
